@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
+import Input from 'react-toolbox/lib/input';
 
-export default class InputX extends Component {
+export default class FormInput extends Component {
 
     constructor(props) {
         super(props);
         //this.nameChanged = this.nameChanged.bind(this);
     }
 
-    nameChanged = (event) => {
-        this.props.handler(event.target.value);
-
+    nameChanged = (name) => {
+        this.props.handler(name);
     };
 
     render() {
         return (
             <section>
-                <input type="text" label='Name' name='name'
+                <Input type="text" label='Name' name='name'
                        onChange={this.nameChanged}/>
             </section>
         );
     }
 }
 
-InputX.propTypes = { handler: React.PropTypes.func };
+FormInput.propTypes = { handler: React.PropTypes.func };
 
