@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import ToolboxApp from 'react-toolbox/lib/app';
-import Button from 'react-toolbox/lib/button';
 import FormInput from './FormInput'
 
 export default class App extends Component {
@@ -17,10 +15,13 @@ export default class App extends Component {
 
     render() {
         return (
-            <ToolboxApp>
+            <div>
                 <h3>{this.state.name}</h3>
-                <FormInput handler={this.handleInput}/>
-            </ToolboxApp>
-        );
+                < FormInput
+                    handler={this.handleInput}/>
+            </div>
+
+        )
+            ;
     }
 }
