@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FormInput from './FormInput'
+import FormInput from './../FormInput'
 
 export default class App extends Component {
 
