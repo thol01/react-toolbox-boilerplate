@@ -23,13 +23,18 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /(\.jsx|\.js)$/,
                 loaders: ['react-hot', 'babel'],
                 include: path.join(__dirname, 'src')
             },
             {
                 test: /(\.scss|\.css)$/,
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap!toolbox')
+            },
+            {
+                test: /(\.jsx|\.js)$/,
+                loader: "eslint-loader",
+                exclude: /node_modules/
             }
         ]
     },
@@ -41,7 +46,7 @@ module.exports = {
     postcss: [autoprefixer],
 
     plugins: [
-        new ExtractTextPlugin('react-toolbox.css', { allChunks: true }),
+        new ExtractTextPlugin('react-toolbox.css', {allChunks: true}),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
